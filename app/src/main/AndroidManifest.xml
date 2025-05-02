@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.DoItLater">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/doitlater"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/doitlater"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver
+            android:name=".NotifierGeo"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".NotifierGeoSms"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".NotifierGeoSound"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".NotifierGeoBluetooth"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity android:name=".ActionsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainPageSms" />
+        <activity android:name=".MainPageReminder" />
+        <activity android:name=".MainPageSound" />
+        <activity android:name=".MainPageBluetooth" />
+
+        <receiver android:name=".NotifierAlarmSms" />
+        <receiver android:name=".NotifierAlarmReminder" />
+        <receiver android:name=".NotifierAlarmSound" />
+        <receiver android:name=".NotifierAlarmBluetooth" />
+
+
+        <activity android:name=".ConfermaActivity" />
+    </application>
+
+</manifest>
